@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1; /* Asegura que el contenido esté por encima del fondo */
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('fondoo.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(70%); /* Aplica el brillo bajo a la imagen de fondo */
+    z-index: -1; /* Coloca la imagen de fondo detrás del contenido */
+}
+.album-container {
+    max-width: 900px;
+    width: 100%;
+}
+
+.album-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    transition: transform 0.3s ease;
+}
+
+.album-section:hover {
+    transform: scale(1.02);
+}
+
+.photo img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.photo-left {
+    margin-right: 30px;
+}
+
+.photo-right {
+    margin-left: 30px;
+}
+
+.text {
+    flex: 1;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+    padding: 10px 20px;
+    background: rgba(28, 3, 41, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.text p {
+    font-size: 20px;
+    color: #ffffff;
+}
+
+@media (max-width: 768px) {
+    .album-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .photo-left, .photo-right {
+        margin: 0 0 20px 0;
+    }
+
+    .photo img {
+        width: 100%;
+        height: auto;
+    }
+
+    .text {
+        padding: 20px;
+    }
+}
